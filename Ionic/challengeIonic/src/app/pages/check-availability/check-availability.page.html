@@ -1,0 +1,36 @@
+<app-header title="Check Availability"></app-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label> Checkin</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" 
+                    placeholder="DD/MM/YYYY" 
+                    [min]="fechaMin"
+                    [max]="fechaMax"
+                    (ionChange)="changeDateCheckIn($event)"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Checkout</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" 
+                    placeholder="DD/MM/YYYY" 
+                    [min]="fechaMin"
+                    [max]="fechaMax"
+                    (ionChange)="changeDateCheckOut($event)"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="onClick()" color="primary">Check Availability</ion-button>
+
+  <ion-card *ngIf="reserva != undefined">
+    <ion-card-content>
+      <ion-label>Stay duration: {{reserva.nights_count}}</ion-label> <br>
+      <ion-label>Night cost: ${{reserva.nights_cost}}</ion-label> <br>
+      <ion-label>Discount: ${{reserva.discount}}</ion-label> <br>
+      <ion-label>Cleaning Fees: ${{reserva.cleaning_fee}}</ion-label> <br>
+      <ion-label>Your Total: ${{reserva.total}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

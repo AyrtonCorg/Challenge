@@ -1,0 +1,26 @@
+<app-header title="Detalles"></app-header>
+
+<ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-img [src]="property.image_url"></ion-img>
+
+        <ion-card-title>
+          {{property.name}}
+        </ion-card-title>
+
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-label>{{property.description}}</ion-label>
+        <br>
+        <ion-label *ngIf="property.is_pets_allowed">Pets Allowed: Yes</ion-label>
+        <ion-label *ngIf="!property.is_pets_allowed">Pets Allowed: No</ion-label>
+        <br>
+        <ion-label>Adults: {{property.adults}}</ion-label>
+        <br>
+        <ion-label>Children: {{property.children}}</ion-label>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="onClick()" color="primary">Check Availability</ion-button>
+</ion-content>
