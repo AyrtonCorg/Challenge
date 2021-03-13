@@ -1,0 +1,25 @@
+<app-header titulo="Detalle del Inmueble"></app-header>
+
+<div class="card-container">
+    <mat-card>
+        <mat-card-header style="display: flex; flex-direction: column;">
+            <img mat-card-image style="width: 20rem; height: 20rem;" [src]="property.image_url">
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-card-title>{{property.name}}</mat-card-title>
+            <mat-label>{{property.description}}</mat-label>
+            <br>
+            <mat-label *ngIf="property.is_pets_allowed">Pets Allowed: Yes</mat-label>
+            <mat-label *ngIf="!property.is_pets_allowed">Pets Allowed: No</mat-label>
+            <br>
+            <mat-label>Adults: {{property.adults}}</mat-label>
+            <br>
+            <mat-label>Children: {{property.children}}</mat-label>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="spacer"></div>
+
+    <app-check-availability></app-check-availability>
+</div>

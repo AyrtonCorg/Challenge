@@ -1,0 +1,43 @@
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel hideToggle [expanded]="true">
+        <mat-expansion-panel-header style="flex-direction: column; height: 36px; background-color:#1976d2; margin-bottom: 1rem;" >
+            <mat-panel-title style="color: white;">
+                <h3>Check Availability</h3>
+
+                <mat-icon style="margin-top: 0.40rem; margin-left: 0.5rem;"> date_range </mat-icon>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+            <mat-label>Check in</mat-label>
+            <input matInput [matDatepicker]="pickerCheckIn" [min]="fechaMin" [max]="fechaMax"
+                (dateChange)="changeDateCheckIn($event)" />
+            <mat-datepicker-toggle matSuffix [for]="pickerCheckIn"></mat-datepicker-toggle>
+            <mat-datepicker #pickerCheckIn></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Check out</mat-label>
+            <input matInput [matDatepicker]="pickerCheckOut" [min]="fechaMin" [max]="fechaMax"
+                (dateChange)="changeDateCheckOut($event)" />
+            <mat-datepicker-toggle matSuffix [for]="pickerCheckOut"></mat-datepicker-toggle>
+            <mat-datepicker #pickerCheckOut></mat-datepicker>
+        </mat-form-field>
+
+        <div style="text-align: center; ">
+            <button mat-raised-button style="background-color: #1976d2; color: white;" (click)="onClick()">Check</button>
+        </div>
+
+        <div *ngIf="reserva != undefined">
+                <mat-label>Stay duration: {{reserva.nights_count}}</mat-label> <br>
+                <mat-label>Night cost: ${{reserva.nights_cost}}</mat-label> <br>
+                <mat-label>Discount: ${{reserva.discount}}</mat-label> <br>
+                <mat-label>Cleaning Fees: ${{reserva.cleaning_fee}}</mat-label> <br>
+                <mat-label>Your Total: ${{reserva.total}}</mat-label>
+        </div>
+
+        <span *ngIf="reserva == undefined && seBusco" class="help-block" style="color: red;">
+            La propiedad no está disponible para ese rango de fecha.</span>
+    </mat-expansion-panel>
+</mat-accordion>

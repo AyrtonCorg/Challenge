@@ -1,0 +1,7 @@
+<app-header titulo="Listado de alquileres"></app-header>
+
+<mat-grid-list cols="6" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let alquiler of alquileres">
+        <app-listado-propiedad  style="margin-bottom: 3rem;" [propiedad]="alquiler"></app-listado-propiedad>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<div class="card-container">
+  <a class="card" target="_blank" rel="noopener" *ngFor="let opcion of opciones" (click)="onClick(opcion)">
+    <span class="material-icons">
+      cottage
+      </span>
+ 
+    <span style="margin-left: 1rem; margin-right: 1rem;">
+      {{opcion.name}}
+    </span>
+    
+    <span class="material-icons">
+      arrow_forward_ios
+      </span>
+     </a>
+</div>
